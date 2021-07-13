@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.services.laotel.com" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.services.laotel.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.services.laotel.com">
+      <s:element name="queryBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="msg" type="tns:queryBalanceRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="queryBalanceRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="header" type="tns:headerRequest" />
+          <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="headerRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="chanel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="trans_id" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="queryBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="queryBalanceResult" type="tns:queryBalanceResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="queryBalanceResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="header" type="tns:headerResult" />
+          <s:element minOccurs="0" maxOccurs="1" name="balanceDetail" type="tns:ArrayOfBalanceDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="headerResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="resultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="resultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="trans_id" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBalanceDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="balanceDetail" type="tns:balanceDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="balanceDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="balanceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="balanceType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="balance" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="expire" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="cashRecharege">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="msg" type="tns:paymentRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="paymentRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="header" type="tns:headerRequest" />
+          <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pin" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="cashRecharegeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cashRecharegeResult" type="tns:paymentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="paymentResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="header" type="tns:headerResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="newBalance" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="newActiveStop" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="validityPeriod" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="extraValidity" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="adjustBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="msg" type="tns:adjustBalanceRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="adjustBalanceRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="header" type="tns:headerRequest" />
+          <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="adjustBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="adjustBalanceResult" type="tns:adjustBalanceResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="adjustBalanceResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="header" type="tns:headerResult" />
+          <s:element minOccurs="0" maxOccurs="1" name="balanceDetail" type="tns:ArrayOfBalanceDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="voucherRecharge">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="msg" type="tns:voucherRechargeRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="voucherRechargeRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="header" type="tns:headerRequest" />
+          <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pin" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="voucherRechargeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="voucherRechargeResult" type="tns:voucherRechargeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="voucherRechargeResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="header" type="tns:headerResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="newBalance" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="newActiveStop" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="validityPeriod" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="extraValidity" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="queryBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:queryBalance" />
+  </wsdl:message>
+  <wsdl:message name="queryBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:queryBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="cashRecharegeSoapIn">
+    <wsdl:part name="parameters" element="tns:cashRecharege" />
+  </wsdl:message>
+  <wsdl:message name="cashRecharegeSoapOut">
+    <wsdl:part name="parameters" element="tns:cashRecharegeResponse" />
+  </wsdl:message>
+  <wsdl:message name="adjustBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:adjustBalance" />
+  </wsdl:message>
+  <wsdl:message name="adjustBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:adjustBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="voucherRechargeSoapIn">
+    <wsdl:part name="parameters" element="tns:voucherRecharge" />
+  </wsdl:message>
+  <wsdl:message name="voucherRechargeSoapOut">
+    <wsdl:part name="parameters" element="tns:voucherRechargeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicesSoap">
+    <wsdl:operation name="queryBalance">
+      <wsdl:input message="tns:queryBalanceSoapIn" />
+      <wsdl:output message="tns:queryBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cashRecharege">
+      <wsdl:input message="tns:cashRecharegeSoapIn" />
+      <wsdl:output message="tns:cashRecharegeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adjustBalance">
+      <wsdl:input message="tns:adjustBalanceSoapIn" />
+      <wsdl:output message="tns:adjustBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="voucherRecharge">
+      <wsdl:input message="tns:voucherRechargeSoapIn" />
+      <wsdl:output message="tns:voucherRechargeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicesSoap" type="tns:ServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="queryBalance">
+      <soap:operation soapAction="http://www.services.laotel.com/queryBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cashRecharege">
+      <soap:operation soapAction="http://www.services.laotel.com/cashRecharege" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adjustBalance">
+      <soap:operation soapAction="http://www.services.laotel.com/adjustBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="voucherRecharge">
+      <soap:operation soapAction="http://www.services.laotel.com/voucherRecharge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicesSoap12" type="tns:ServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="queryBalance">
+      <soap12:operation soapAction="http://www.services.laotel.com/queryBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cashRecharege">
+      <soap12:operation soapAction="http://www.services.laotel.com/cashRecharege" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adjustBalance">
+      <soap12:operation soapAction="http://www.services.laotel.com/adjustBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="voucherRecharge">
+      <soap12:operation soapAction="http://www.services.laotel.com/voucherRecharge" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Services">
+    <wsdl:port name="ServicesSoap" binding="tns:ServicesSoap">
+      <soap:address location="http://172.28.12.93:7781/Services.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicesSoap12" binding="tns:ServicesSoap12">
+      <soap12:address location="http://172.28.12.93:7781/Services.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

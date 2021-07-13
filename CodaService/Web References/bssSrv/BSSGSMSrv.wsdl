@@ -1,0 +1,2068 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://services.laotel.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://services.laotel.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://services.laotel.com">
+      <s:element name="QueryInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryInformationResult" type="tns:ResultQueryInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultQueryInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="v_debit" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="v_cust_id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="v_cust_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="v_cust_id_next" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="v_cust_name_next" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="v_cust_num" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="v_error" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="v_return_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryBalanceResult" type="tns:ResultBalance" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultBalance">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Debit" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryBalanceByCust">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryBalanceByCustResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryBalanceByCustResult" type="tns:ResultBalance" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Payment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="staffcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transaction_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PaymentResult" type="tns:ResultPayment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultPayment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="p_error" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_payment_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_receipt_no" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="p_remain_amount" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="v_return_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PaymentRefill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="discount_amount" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pin_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="expire_date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="send_number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dummy_number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ip_pc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="staffcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invoice_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transaction_id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="discount_rate" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="pay_by_sub" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentRefillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PaymentRefillResult" type="tns:ResultPayment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPaymentStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="transaction_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPaymentStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckPaymentStatusResult" type="tns:ResultCheckStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultCheckStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Payment_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cust_name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CancelPayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="transaction_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelPaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelPaymentResult" type="tns:ResultCancel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultCancel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangePasswordResult" type="tns:ResultChangePassword" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultChangePassword">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeductPoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="point_deduct" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeductPointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeductPointResult" type="tns:ResultDeductPoint" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultDeductPoint">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultPoint" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddPoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="point_add" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddPointResult" type="tns:ResultAddPoint" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultAddPoint">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultPoint" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckPoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckPointResult" type="tns:ResultCheckPoint" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultCheckPoint">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultPoint" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ChangePackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="packagecode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePackageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangePackageResult" type="tns:ResultChangePackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultChangePackage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ChangePackageDB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="packagecode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePackageDBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangePackageDBResult" type="tns:ResultChangePackageDB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultChangePackageDB">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ActivateService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servicecode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActivateServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActivateServiceResult" type="tns:ResultActivateService" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultActivateService">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeactivateService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servicecode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeactivateServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeactivateServiceResult" type="tns:ResultDeactivateService" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultDeactivateService">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ActivateServiceDB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servicecode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActivateServiceDBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActivateServiceDBResult" type="tns:ResultActivateServiceDB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultActivateServiceDB">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PACKAGE_ID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeactivateServiceDB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servicecode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeactivateServiceDBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeactivateServiceDBResult" type="tns:ResultDeactivateServiceDB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultDeactivateServiceDB">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PACKAGE_ID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ActiveKit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActiveKitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActiveKitResult" type="tns:ResultActiveKit" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultActiveKit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ActiveKitDB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActiveKitDBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActiveKitDBResult" type="tns:ResultActiveKitDB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultActiveKitDB">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateCust">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cus_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idcard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="birthday" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCustResult" type="tns:ResultUpdateCust" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultUpdateCust">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateSubs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cus_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idcard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="birthday" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSubsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSubsResult" type="tns:ResultUpdateSubs" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultUpdateSubs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryCustInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryCustInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryCustInfoResult" type="tns:ResultQueryCustInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultQueryCustInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CUST_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Regsister_date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryNetworkType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryNetworkTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryNetworkTypeResult" type="tns:ResultQueryNetworkType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultQueryNetworkType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCT_TYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NETWORK_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NETWORK_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryPackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPackageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryPackageResult" type="tns:ResultQueryPackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultQueryPackage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PACKAGE_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PACKAGE_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryServiceResult" type="tns:ResultQueryService" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultQueryService">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SERVICE_LIST" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Open3G" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Open4G" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OpenRBT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IRData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IRCall" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListDataService" type="tns:ArrayOfQueryServiceItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfQueryServiceItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="QueryServiceItem" type="tns:QueryServiceItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="QueryServiceItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SERVICE_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SERVICE_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CREATE_DATE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QuerySubInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remote_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shopcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySubInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QuerySubInfoResult" type="tns:ResultQuerySubInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultQuerySubInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SUB_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUST_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSISDN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusBSSDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Regsister_date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Expire_date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FIRST_CONNECT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DEPLOY_ADDRESS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAY_FULL_ADDRESS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CONTACT_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BIRTH_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CONTACT_TITLE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FIRST_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CHANGE_DATETIME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SERIAL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SUB_TYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMSI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMP_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HRL_Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OCS_Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TELEPHONE_FAX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MAIL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PROVINCE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STREET" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RequestCommand">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="commandString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestCommandResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestCommandResult" type="tns:ResultCommand" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultCommand">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryDataUsage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryDataUsageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryDataUsageResult" type="tns:ResultDataUsage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultDataUsage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Used" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Remain" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryInvoiceSub">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryInvoiceSubResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryInvoiceSubResult" type="tns:ResultListInvoice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultListInvoice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ListInvoice" type="tns:ArrayOfResultInvoice" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalDebit" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfResultInvoice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResultInvoice" type="tns:ResultInvoice" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResultInvoice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MONTH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INVOICE_NO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INVOICE_TYPE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="USAGE" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VAT" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SPT" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DISCOUNT" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PROMOTION" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ADJUSTMENT" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PAYMENT" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BALANCE" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="STATUS" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryInvoiceSubYear">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryInvoiceSubYearResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryInvoiceSubYearResult" type="tns:ResultListInvoice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryListHLR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryListHLRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryListHLRResult" type="tns:ResultHLR" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultHLR">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IMSI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HLRSN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISDN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NAM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BasicServiceTS" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="BS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DEFAULTCALL_TS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CFB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CFNRY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CFNRC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BAOC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BOIC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BOICEXHC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BORO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BAIC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BICROAM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CLIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CW" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HOLD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UCSI_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OCSI_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OCSISTATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCSI_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCSISTATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VLRLIST_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SGSNLIST_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CNTXID1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="APN1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CNTXID2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="APN2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SMDP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RROption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="XMLString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryPackageDesc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PackageId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPackageDescResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryPackageDescResult" type="tns:ResultGetPackageDesc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultGetPackageDesc">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PackageId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageLA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageEng" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuotaName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Duration" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QuerySubtypeById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySubtypeByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QuerySubtypeByIdResult" type="tns:ResultSubtype" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultSubtype">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SubDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EncryptData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncryptDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EncryptDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OCSStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OCSStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OCSStatusResult" type="tns:ResultOcsStaus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultOcsStaus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LifeCycleState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NetworkType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainProductID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainProductDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainBalance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActiveDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpireDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckDataService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DataService" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckDataServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckDataServiceResult" type="tns:ResultOcsStaus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="QueryInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryInformation" />
+  </wsdl:message>
+  <wsdl:message name="QueryInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryBalance" />
+  </wsdl:message>
+  <wsdl:message name="QueryBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryBalanceByCustSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryBalanceByCust" />
+  </wsdl:message>
+  <wsdl:message name="QueryBalanceByCustSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryBalanceByCustResponse" />
+  </wsdl:message>
+  <wsdl:message name="PaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:Payment" />
+  </wsdl:message>
+  <wsdl:message name="PaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="PaymentRefillSoapIn">
+    <wsdl:part name="parameters" element="tns:PaymentRefill" />
+  </wsdl:message>
+  <wsdl:message name="PaymentRefillSoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentRefillResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPaymentStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPaymentStatus" />
+  </wsdl:message>
+  <wsdl:message name="CheckPaymentStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPaymentStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelPaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelPayment" />
+  </wsdl:message>
+  <wsdl:message name="CancelPaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeductPointSoapIn">
+    <wsdl:part name="parameters" element="tns:DeductPoint" />
+  </wsdl:message>
+  <wsdl:message name="DeductPointSoapOut">
+    <wsdl:part name="parameters" element="tns:DeductPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPointSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPoint" />
+  </wsdl:message>
+  <wsdl:message name="AddPointSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPointSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPoint" />
+  </wsdl:message>
+  <wsdl:message name="CheckPointSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePackageSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePackage" />
+  </wsdl:message>
+  <wsdl:message name="ChangePackageSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePackageDBSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePackageDB" />
+  </wsdl:message>
+  <wsdl:message name="ChangePackageDBSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePackageDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActivateServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:ActivateService" />
+  </wsdl:message>
+  <wsdl:message name="ActivateServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:ActivateServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeactivateServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:DeactivateService" />
+  </wsdl:message>
+  <wsdl:message name="DeactivateServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:DeactivateServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActivateServiceDBSoapIn">
+    <wsdl:part name="parameters" element="tns:ActivateServiceDB" />
+  </wsdl:message>
+  <wsdl:message name="ActivateServiceDBSoapOut">
+    <wsdl:part name="parameters" element="tns:ActivateServiceDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeactivateServiceDBSoapIn">
+    <wsdl:part name="parameters" element="tns:DeactivateServiceDB" />
+  </wsdl:message>
+  <wsdl:message name="DeactivateServiceDBSoapOut">
+    <wsdl:part name="parameters" element="tns:DeactivateServiceDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActiveKitSoapIn">
+    <wsdl:part name="parameters" element="tns:ActiveKit" />
+  </wsdl:message>
+  <wsdl:message name="ActiveKitSoapOut">
+    <wsdl:part name="parameters" element="tns:ActiveKitResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActiveKitDBSoapIn">
+    <wsdl:part name="parameters" element="tns:ActiveKitDB" />
+  </wsdl:message>
+  <wsdl:message name="ActiveKitDBSoapOut">
+    <wsdl:part name="parameters" element="tns:ActiveKitDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCust" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCustResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSubsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSubs" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSubsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSubsResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryCustInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryCustInfo" />
+  </wsdl:message>
+  <wsdl:message name="QueryCustInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryCustInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryNetworkTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryNetworkType" />
+  </wsdl:message>
+  <wsdl:message name="QueryNetworkTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryNetworkTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryPackageSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryPackage" />
+  </wsdl:message>
+  <wsdl:message name="QueryPackageSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryPackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryService" />
+  </wsdl:message>
+  <wsdl:message name="QueryServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySubInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySubInfo" />
+  </wsdl:message>
+  <wsdl:message name="QuerySubInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySubInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestCommandSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestCommand" />
+  </wsdl:message>
+  <wsdl:message name="RequestCommandSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryDataUsageSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryDataUsage" />
+  </wsdl:message>
+  <wsdl:message name="QueryDataUsageSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryDataUsageResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryInvoiceSubSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryInvoiceSub" />
+  </wsdl:message>
+  <wsdl:message name="QueryInvoiceSubSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryInvoiceSubResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryInvoiceSubYearSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryInvoiceSubYear" />
+  </wsdl:message>
+  <wsdl:message name="QueryInvoiceSubYearSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryInvoiceSubYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryListHLRSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryListHLR" />
+  </wsdl:message>
+  <wsdl:message name="QueryListHLRSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryListHLRResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryPackageDescSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryPackageDesc" />
+  </wsdl:message>
+  <wsdl:message name="QueryPackageDescSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryPackageDescResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySubtypeByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySubtypeById" />
+  </wsdl:message>
+  <wsdl:message name="QuerySubtypeByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySubtypeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="EncryptDataSoapIn">
+    <wsdl:part name="parameters" element="tns:EncryptData" />
+  </wsdl:message>
+  <wsdl:message name="EncryptDataSoapOut">
+    <wsdl:part name="parameters" element="tns:EncryptDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="OCSStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:OCSStatus" />
+  </wsdl:message>
+  <wsdl:message name="OCSStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:OCSStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckDataServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckDataService" />
+  </wsdl:message>
+  <wsdl:message name="CheckDataServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckDataServiceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BSSGSMSrvSoap">
+    <wsdl:operation name="QueryInformation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">001: Query Information</wsdl:documentation>
+      <wsdl:input message="tns:QueryInformationSoapIn" />
+      <wsdl:output message="tns:QueryInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryBalance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">002: Query Balance by subscriber</wsdl:documentation>
+      <wsdl:input message="tns:QueryBalanceSoapIn" />
+      <wsdl:output message="tns:QueryBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryBalanceByCust">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">003: Query Balance by customer</wsdl:documentation>
+      <wsdl:input message="tns:QueryBalanceByCustSoapIn" />
+      <wsdl:output message="tns:QueryBalanceByCustSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Payment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">004: Payment</wsdl:documentation>
+      <wsdl:input message="tns:PaymentSoapIn" />
+      <wsdl:output message="tns:PaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentRefill">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">005: Payment Refill by card</wsdl:documentation>
+      <wsdl:input message="tns:PaymentRefillSoapIn" />
+      <wsdl:output message="tns:PaymentRefillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPaymentStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">006: Check payment status</wsdl:documentation>
+      <wsdl:input message="tns:CheckPaymentStatusSoapIn" />
+      <wsdl:output message="tns:CheckPaymentStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelPayment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">007: Cancel payment by transactionID</wsdl:documentation>
+      <wsdl:input message="tns:CancelPaymentSoapIn" />
+      <wsdl:output message="tns:CancelPaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">008: Change password</wsdl:documentation>
+      <wsdl:input message="tns:ChangePasswordSoapIn" />
+      <wsdl:output message="tns:ChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeductPoint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">009: Deduct point only postpaid</wsdl:documentation>
+      <wsdl:input message="tns:DeductPointSoapIn" />
+      <wsdl:output message="tns:DeductPointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPoint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">010: Add point only postpaid</wsdl:documentation>
+      <wsdl:input message="tns:AddPointSoapIn" />
+      <wsdl:output message="tns:AddPointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPoint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">011: Check point only postpaid</wsdl:documentation>
+      <wsdl:input message="tns:CheckPointSoapIn" />
+      <wsdl:output message="tns:CheckPointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">012: Change package</wsdl:documentation>
+      <wsdl:input message="tns:ChangePackageSoapIn" />
+      <wsdl:output message="tns:ChangePackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePackageDB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">013: Change package DB</wsdl:documentation>
+      <wsdl:input message="tns:ChangePackageDBSoapIn" />
+      <wsdl:output message="tns:ChangePackageDBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateService">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">014: ActivateService</wsdl:documentation>
+      <wsdl:input message="tns:ActivateServiceSoapIn" />
+      <wsdl:output message="tns:ActivateServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateService">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">015: DeactivateService</wsdl:documentation>
+      <wsdl:input message="tns:DeactivateServiceSoapIn" />
+      <wsdl:output message="tns:DeactivateServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateServiceDB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">016: Activate Service DB</wsdl:documentation>
+      <wsdl:input message="tns:ActivateServiceDBSoapIn" />
+      <wsdl:output message="tns:ActivateServiceDBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateServiceDB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">017: Deactivate Service DB</wsdl:documentation>
+      <wsdl:input message="tns:DeactivateServiceDBSoapIn" />
+      <wsdl:output message="tns:DeactivateServiceDBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActiveKit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">018: Active kit</wsdl:documentation>
+      <wsdl:input message="tns:ActiveKitSoapIn" />
+      <wsdl:output message="tns:ActiveKitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActiveKitDB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">019: Active Kit DB</wsdl:documentation>
+      <wsdl:input message="tns:ActiveKitDBSoapIn" />
+      <wsdl:output message="tns:ActiveKitDBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCust">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">020: Update customer</wsdl:documentation>
+      <wsdl:input message="tns:UpdateCustSoapIn" />
+      <wsdl:output message="tns:UpdateCustSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSubs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">021: Update Subscriber</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSubsSoapIn" />
+      <wsdl:output message="tns:UpdateSubsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryCustInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">022: Query customer information</wsdl:documentation>
+      <wsdl:input message="tns:QueryCustInfoSoapIn" />
+      <wsdl:output message="tns:QueryCustInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryNetworkType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">023: Query network type</wsdl:documentation>
+      <wsdl:input message="tns:QueryNetworkTypeSoapIn" />
+      <wsdl:output message="tns:QueryNetworkTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryPackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">024: Query package</wsdl:documentation>
+      <wsdl:input message="tns:QueryPackageSoapIn" />
+      <wsdl:output message="tns:QueryPackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryService">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">025: Query service</wsdl:documentation>
+      <wsdl:input message="tns:QueryServiceSoapIn" />
+      <wsdl:output message="tns:QueryServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySubInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">026: Query subscriber information</wsdl:documentation>
+      <wsdl:input message="tns:QuerySubInfoSoapIn" />
+      <wsdl:output message="tns:QuerySubInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestCommand">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">027: Query Command string</wsdl:documentation>
+      <wsdl:input message="tns:RequestCommandSoapIn" />
+      <wsdl:output message="tns:RequestCommandSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryDataUsage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">028: Query Data Usage</wsdl:documentation>
+      <wsdl:input message="tns:QueryDataUsageSoapIn" />
+      <wsdl:output message="tns:QueryDataUsageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryInvoiceSub">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">029: Query Invoice list by subscriber</wsdl:documentation>
+      <wsdl:input message="tns:QueryInvoiceSubSoapIn" />
+      <wsdl:output message="tns:QueryInvoiceSubSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryInvoiceSubYear">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">030: Query Invoice list by subscriber by year</wsdl:documentation>
+      <wsdl:input message="tns:QueryInvoiceSubYearSoapIn" />
+      <wsdl:output message="tns:QueryInvoiceSubYearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryListHLR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">031: Query QueryListHLR</wsdl:documentation>
+      <wsdl:input message="tns:QueryListHLRSoapIn" />
+      <wsdl:output message="tns:QueryListHLRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryPackageDesc">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">032: Query Package description</wsdl:documentation>
+      <wsdl:input message="tns:QueryPackageDescSoapIn" />
+      <wsdl:output message="tns:QueryPackageDescSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySubtypeById">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">033: Query Subscriber type by subtype id</wsdl:documentation>
+      <wsdl:input message="tns:QuerySubtypeByIdSoapIn" />
+      <wsdl:output message="tns:QuerySubtypeByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">034: Encrypt data</wsdl:documentation>
+      <wsdl:input message="tns:EncryptDataSoapIn" />
+      <wsdl:output message="tns:EncryptDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OCSStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">035: OCS Staus</wsdl:documentation>
+      <wsdl:input message="tns:OCSStatusSoapIn" />
+      <wsdl:output message="tns:OCSStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckDataService">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">036: CheckDataService</wsdl:documentation>
+      <wsdl:input message="tns:CheckDataServiceSoapIn" />
+      <wsdl:output message="tns:CheckDataServiceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BSSGSMSrvSoap" type="tns:BSSGSMSrvSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryInformation">
+      <soap:operation soapAction="http://services.laotel.com/QueryInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBalance">
+      <soap:operation soapAction="http://services.laotel.com/QueryBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBalanceByCust">
+      <soap:operation soapAction="http://services.laotel.com/QueryBalanceByCust" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Payment">
+      <soap:operation soapAction="http://services.laotel.com/Payment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentRefill">
+      <soap:operation soapAction="http://services.laotel.com/PaymentRefill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPaymentStatus">
+      <soap:operation soapAction="http://services.laotel.com/CheckPaymentStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelPayment">
+      <soap:operation soapAction="http://services.laotel.com/CancelPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://services.laotel.com/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeductPoint">
+      <soap:operation soapAction="http://services.laotel.com/DeductPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPoint">
+      <soap:operation soapAction="http://services.laotel.com/AddPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPoint">
+      <soap:operation soapAction="http://services.laotel.com/CheckPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePackage">
+      <soap:operation soapAction="http://services.laotel.com/ChangePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePackageDB">
+      <soap:operation soapAction="http://services.laotel.com/ChangePackageDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateService">
+      <soap:operation soapAction="http://services.laotel.com/ActivateService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateService">
+      <soap:operation soapAction="http://services.laotel.com/DeactivateService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateServiceDB">
+      <soap:operation soapAction="http://services.laotel.com/ActivateServiceDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateServiceDB">
+      <soap:operation soapAction="http://services.laotel.com/DeactivateServiceDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActiveKit">
+      <soap:operation soapAction="http://services.laotel.com/ActiveKit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActiveKitDB">
+      <soap:operation soapAction="http://services.laotel.com/ActiveKitDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCust">
+      <soap:operation soapAction="http://services.laotel.com/UpdateCust" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSubs">
+      <soap:operation soapAction="http://services.laotel.com/UpdateSubs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCustInfo">
+      <soap:operation soapAction="http://services.laotel.com/QueryCustInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryNetworkType">
+      <soap:operation soapAction="http://services.laotel.com/QueryNetworkType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPackage">
+      <soap:operation soapAction="http://services.laotel.com/QueryPackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryService">
+      <soap:operation soapAction="http://services.laotel.com/QueryService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySubInfo">
+      <soap:operation soapAction="http://services.laotel.com/QuerySubInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestCommand">
+      <soap:operation soapAction="http://services.laotel.com/RequestCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryDataUsage">
+      <soap:operation soapAction="http://services.laotel.com/QueryDataUsage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryInvoiceSub">
+      <soap:operation soapAction="http://services.laotel.com/QueryInvoiceSub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryInvoiceSubYear">
+      <soap:operation soapAction="http://services.laotel.com/QueryInvoiceSubYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryListHLR">
+      <soap:operation soapAction="http://services.laotel.com/QueryListHLR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPackageDesc">
+      <soap:operation soapAction="http://services.laotel.com/QueryPackageDesc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySubtypeById">
+      <soap:operation soapAction="http://services.laotel.com/QuerySubtypeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptData">
+      <soap:operation soapAction="http://services.laotel.com/EncryptData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OCSStatus">
+      <soap:operation soapAction="http://services.laotel.com/OCSStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDataService">
+      <soap:operation soapAction="http://services.laotel.com/CheckDataService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BSSGSMSrvSoap12" type="tns:BSSGSMSrvSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryInformation">
+      <soap12:operation soapAction="http://services.laotel.com/QueryInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBalance">
+      <soap12:operation soapAction="http://services.laotel.com/QueryBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBalanceByCust">
+      <soap12:operation soapAction="http://services.laotel.com/QueryBalanceByCust" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Payment">
+      <soap12:operation soapAction="http://services.laotel.com/Payment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentRefill">
+      <soap12:operation soapAction="http://services.laotel.com/PaymentRefill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPaymentStatus">
+      <soap12:operation soapAction="http://services.laotel.com/CheckPaymentStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelPayment">
+      <soap12:operation soapAction="http://services.laotel.com/CancelPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="http://services.laotel.com/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeductPoint">
+      <soap12:operation soapAction="http://services.laotel.com/DeductPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPoint">
+      <soap12:operation soapAction="http://services.laotel.com/AddPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPoint">
+      <soap12:operation soapAction="http://services.laotel.com/CheckPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePackage">
+      <soap12:operation soapAction="http://services.laotel.com/ChangePackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePackageDB">
+      <soap12:operation soapAction="http://services.laotel.com/ChangePackageDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateService">
+      <soap12:operation soapAction="http://services.laotel.com/ActivateService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateService">
+      <soap12:operation soapAction="http://services.laotel.com/DeactivateService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateServiceDB">
+      <soap12:operation soapAction="http://services.laotel.com/ActivateServiceDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateServiceDB">
+      <soap12:operation soapAction="http://services.laotel.com/DeactivateServiceDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActiveKit">
+      <soap12:operation soapAction="http://services.laotel.com/ActiveKit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActiveKitDB">
+      <soap12:operation soapAction="http://services.laotel.com/ActiveKitDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCust">
+      <soap12:operation soapAction="http://services.laotel.com/UpdateCust" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSubs">
+      <soap12:operation soapAction="http://services.laotel.com/UpdateSubs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCustInfo">
+      <soap12:operation soapAction="http://services.laotel.com/QueryCustInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryNetworkType">
+      <soap12:operation soapAction="http://services.laotel.com/QueryNetworkType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPackage">
+      <soap12:operation soapAction="http://services.laotel.com/QueryPackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryService">
+      <soap12:operation soapAction="http://services.laotel.com/QueryService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySubInfo">
+      <soap12:operation soapAction="http://services.laotel.com/QuerySubInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestCommand">
+      <soap12:operation soapAction="http://services.laotel.com/RequestCommand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryDataUsage">
+      <soap12:operation soapAction="http://services.laotel.com/QueryDataUsage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryInvoiceSub">
+      <soap12:operation soapAction="http://services.laotel.com/QueryInvoiceSub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryInvoiceSubYear">
+      <soap12:operation soapAction="http://services.laotel.com/QueryInvoiceSubYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryListHLR">
+      <soap12:operation soapAction="http://services.laotel.com/QueryListHLR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPackageDesc">
+      <soap12:operation soapAction="http://services.laotel.com/QueryPackageDesc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySubtypeById">
+      <soap12:operation soapAction="http://services.laotel.com/QuerySubtypeById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptData">
+      <soap12:operation soapAction="http://services.laotel.com/EncryptData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OCSStatus">
+      <soap12:operation soapAction="http://services.laotel.com/OCSStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDataService">
+      <soap12:operation soapAction="http://services.laotel.com/CheckDataService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BSSGSMSrv">
+    <wsdl:port name="BSSGSMSrvSoap" binding="tns:BSSGSMSrvSoap">
+      <soap:address location="http://10.30.6.92:7575/BSSGSMSrv.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BSSGSMSrvSoap12" binding="tns:BSSGSMSrvSoap12">
+      <soap12:address location="http://10.30.6.92:7575/BSSGSMSrv.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

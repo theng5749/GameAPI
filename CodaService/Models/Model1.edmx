@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CodaPayDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_backlist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Msisdn" Type="nvarchar" MaxLength="15" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ResultCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ResultDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_cancel_log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gamename" Type="nvarchar" MaxLength="50" />
+          <Property Name="Msisdn" Type="nvarchar" MaxLength="15" />
+          <Property Name="Username" Type="nvarchar" MaxLength="128" />
+          <Property Name="ResultCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="ResultDesc" Type="nvarchar" MaxLength="250" />
+          <Property Name="CancelDate" Type="datetime" />
+          <Property Name="Channel" Type="nvarchar" MaxLength="20" />
+          <Property Name="USSDCode" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tbl_confirm_deduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionID" Type="nvarchar" MaxLength="128" />
+          <Property Name="RefCode" Type="nvarchar" MaxLength="128" />
+          <Property Name="Msisdn" Type="nvarchar" MaxLength="15" />
+          <Property Name="Gamename" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cardname" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeductDate" Type="datetime" />
+          <Property Name="ResultCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ResultDesc" Type="nvarchar" MaxLength="250" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="OldBalance" Type="int" />
+          <Property Name="NewBalance" Type="int" />
+          <Property Name="SMSStatus" Type="bit" />
+          <Property Name="Operator" Type="nvarchar" MaxLength="10" />
+          <Property Name="DeductType" Type="nvarchar" MaxLength="20" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="128" />
+          <Property Name="Email" Type="nvarchar" MaxLength="128" />
+          <Property Name="Username" Type="nvarchar" MaxLength="128" />
+          <Property Name="RequestType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tbl_deduct_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="transactionID" Type="nvarchar" MaxLength="20" />
+          <Property Name="msisdn" Type="nvarchar" MaxLength="15" />
+          <Property Name="amount" Type="bigint" />
+          <Property Name="gameName" Type="nvarchar" MaxLength="30" />
+          <Property Name="cardType" Type="nvarchar" MaxLength="200" />
+          <Property Name="deductDate" Type="datetime" />
+          <Property Name="username" Type="nvarchar" MaxLength="128" />
+          <Property Name="resultCode" Type="nvarchar" MaxLength="5" />
+          <Property Name="resultDesc" Type="nvarchar" MaxLength="150" />
+          <Property Name="ocsCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ocsDesc" Type="nvarchar" MaxLength="150" />
+          <Property Name="newBalance" Type="int" />
+          <Property Name="oldBalance" Type="int" />
+          <Property Name="smsStatus" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" />
+          <Property Name="ip" Type="nvarchar" MaxLength="30" />
+          <Property Name="operator" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tbl_deduct_test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="transactionID" Type="nvarchar" MaxLength="20" />
+          <Property Name="msisdn" Type="nvarchar" MaxLength="15" />
+          <Property Name="amount" Type="int" />
+          <Property Name="gameName" Type="nvarchar" MaxLength="30" />
+          <Property Name="cardType" Type="nvarchar" MaxLength="200" />
+          <Property Name="deductDate" Type="datetime" />
+          <Property Name="username" Type="nvarchar" MaxLength="128" />
+          <Property Name="resultCode" Type="nvarchar" MaxLength="5" />
+          <Property Name="resultDesc" Type="nvarchar" MaxLength="150" />
+          <Property Name="ocsCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ocsDesc" Type="nvarchar" MaxLength="150" />
+          <Property Name="newBalance" Type="int" />
+          <Property Name="oldBalance" Type="int" />
+          <Property Name="smsStatus" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" />
+          <Property Name="ip" Type="nvarchar" MaxLength="30" />
+          <Property Name="operator" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tbl_header">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HeaderName" Type="nvarchar" MaxLength="11" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="StopDate" Type="datetime" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="128" />
+          <Property Name="ReqID" Type="int" />
+          <Property Name="ReqIDUAT" Type="int" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="Mmoney" Type="bit" />
+          <Property Name="userid" Type="nvarchar" MaxLength="30" />
+          <Property Name="password" Type="nvarchar" MaxLength="30" />
+          <Property Name="userUAT" Type="nvarchar" MaxLength="30" />
+          <Property Name="passUAT" Type="nvarchar" MaxLength="30" />
+          <Property Name="IsLTC" Type="bit" />
+          <Property Name="IsTPlus" Type="bit" />
+          <Property Name="HeaderCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="USSDCode" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="tbl_member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Msisdn" Type="nvarchar" MaxLength="15" />
+          <Property Name="RegisterDate" Type="datetime" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="ResultCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ResultDesc" Type="nvarchar" MaxLength="150" />
+          <Property Name="GameName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Username" Type="nvarchar" MaxLength="128" />
+          <Property Name="Operator" Type="nvarchar" MaxLength="10" />
+          <Property Name="Header" Type="nvarchar" MaxLength="20" />
+          <Property Name="CancelDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_request_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="msisdn" Type="nvarchar" MaxLength="15" />
+          <Property Name="gameName" Type="nvarchar" MaxLength="30" />
+          <Property Name="cardType" Type="nvarchar" MaxLength="200" />
+          <Property Name="paidAmount" Type="int" />
+          <Property Name="resultCode" Type="nvarchar" MaxLength="5" />
+          <Property Name="resultDesc" Type="nvarchar" MaxLength="150" />
+          <Property Name="resultDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_request_log_production">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionID" Type="nvarchar" MaxLength="128" />
+          <Property Name="Msisdn" Type="nvarchar" MaxLength="15" />
+          <Property Name="PaidAmount" Type="int" />
+          <Property Name="ResultCode" Type="nvarchar" MaxLength="5" />
+          <Property Name="ResultDesc" Type="nvarchar" MaxLength="150" />
+          <Property Name="ResultDate" Type="datetime" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="128" />
+          <Property Name="RequestType" Type="nvarchar" MaxLength="20" />
+          <Property Name="OTP" Type="nvarchar" MaxLength="10" />
+          <Property Name="OTPStatus" Type="bit" />
+          <Property Name="RefCode" Type="nvarchar" MaxLength="128" />
+          <Property Name="Operator" Type="nvarchar" MaxLength="10" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="ServiceType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tbl_request_uat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="TransactionID" Type="nvarchar" MaxLength="128" />
+          <Property Name="Msisdn" Type="nvarchar" MaxLength="15" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="RequestDate" Type="datetime" />
+          <Property Name="ResultCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ResultDesc" Type="nvarchar" MaxLength="250" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Username" Type="nvarchar" MaxLength="128" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tbl_sms_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="msisdn" Type="nvarchar" MaxLength="15" />
+          <Property Name="message" Type="nvarchar" MaxLength="320" />
+          <Property Name="send_date" Type="datetime" />
+          <Property Name="email" Type="nvarchar" MaxLength="128" />
+          <Property Name="resultCode" Type="nvarchar" MaxLength="5" />
+          <Property Name="resultDesc" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityContainer Name="CodaPayDBModelStoreContainer">
+          <EntitySet Name="tbl_backlist" EntityType="Self.tbl_backlist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_cancel_log" EntityType="Self.tbl_cancel_log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_confirm_deduct" EntityType="Self.tbl_confirm_deduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_deduct_log" EntityType="Self.tbl_deduct_log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_deduct_test" EntityType="Self.tbl_deduct_test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_header" EntityType="Self.tbl_header" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_member" EntityType="Self.tbl_member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_request_log" EntityType="Self.tbl_request_log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_request_log_production" EntityType="Self.tbl_request_log_production" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_request_uat" EntityType="Self.tbl_request_uat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_sms_log" EntityType="Self.tbl_sms_log" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CodaPayDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_backlist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ResultCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ResultDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_deduct_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="transactionID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="Int64" />
+          <Property Name="gameName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="cardType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="deductDate" Type="DateTime" Precision="3" />
+          <Property Name="username" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="resultCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="resultDesc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ocsCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ocsDesc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="newBalance" Type="Int32" />
+          <Property Name="oldBalance" Type="Int32" />
+          <Property Name="smsStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ip" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="operator" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_deduct_test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="transactionID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="gameName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="cardType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="deductDate" Type="DateTime" Precision="3" />
+          <Property Name="username" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="resultCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="resultDesc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ocsCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ocsDesc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="newBalance" Type="Int32" />
+          <Property Name="oldBalance" Type="Int32" />
+          <Property Name="smsStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ip" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="operator" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_header">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HeaderName" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="StopDate" Type="DateTime" Precision="3" />
+          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ReqID" Type="Int32" />
+          <Property Name="ReqIDUAT" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Mmoney" Type="Boolean" />
+          <Property Name="userid" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="userUAT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="passUAT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IsLTC" Type="Boolean" />
+          <Property Name="IsTPlus" Type="Boolean" />
+          <Property Name="HeaderCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="USSDCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_request_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="gameName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="cardType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="paidAmount" Type="Int32" />
+          <Property Name="resultCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="resultDesc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="resultDate" Type="DateTime" Precision="3" />
+          </EntityType>
+        <EntityType Name="tbl_request_uat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="TransactionID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="RequestDate" Type="DateTime" Precision="3" />
+          <Property Name="ResultCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ResultDesc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Username" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_sms_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="message" Type="String" MaxLength="320" FixedLength="false" Unicode="true" />
+          <Property Name="send_date" Type="DateTime" Precision="3" />
+          <Property Name="email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="resultCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="resultDesc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="CodaPayDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_backlist" EntityType="Self.tbl_backlist" />
+          <EntitySet Name="tbl_deduct_log" EntityType="Self.tbl_deduct_log" />
+          <EntitySet Name="tbl_deduct_test" EntityType="Self.tbl_deduct_test" />
+          <EntitySet Name="tbl_header" EntityType="Self.tbl_header" />
+          <EntitySet Name="tbl_request_log" EntityType="Self.tbl_request_log" />
+          <EntitySet Name="tbl_request_uat" EntityType="Self.tbl_request_uat" />
+          <EntitySet Name="tbl_sms_log" EntityType="Self.tbl_sms_log" />
+          <EntitySet Name="tbl_confirm_deduct" EntityType="CodaPayDBModel.tbl_confirm_deduct" />
+          <EntitySet Name="tbl_member" EntityType="CodaPayDBModel.tbl_member" />
+          <EntitySet Name="tbl_request_log_production" EntityType="CodaPayDBModel.tbl_request_log_production" />
+          <EntitySet Name="tbl_cancel_log" EntityType="CodaPayDBModel.tbl_cancel_log" />
+        </EntityContainer>
+        <EntityType Name="tbl_confirm_deduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RefCode" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Gamename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cardname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeductDate" Type="DateTime" Precision="3" />
+          <Property Name="ResultCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ResultDesc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OldBalance" Type="Int32" />
+          <Property Name="NewBalance" Type="Int32" />
+          <Property Name="SMSStatus" Type="Boolean" />
+          <Property Name="Operator" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DeductType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IPAddress" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RequestType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="ResultCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ResultDesc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="GameName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Operator" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Header" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CancelDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_request_log_production">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PaidAmount" Type="Int32" />
+          <Property Name="ResultCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="ResultDesc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ResultDate" Type="DateTime" Precision="3" />
+          <Property Name="UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RequestType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="OTP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="OTPStatus" Type="Boolean" />
+          <Property Name="RefCode" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Operator" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="ServiceType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_cancel_log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gamename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ResultCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ResultDesc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CancelDate" Type="DateTime" Precision="3" />
+          <Property Name="Channel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="USSDCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CodaPayDBModelStoreContainer" CdmEntityContainer="CodaPayDBEntities">
+          <EntitySetMapping Name="tbl_backlist">
+            <EntityTypeMapping TypeName="CodaPayDBModel.tbl_backlist">
+              <MappingFragment StoreEntitySet="tbl_backlist">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ResultCode" ColumnName="ResultCode" />
+                <ScalarProperty Name="ResultDesc" ColumnName="ResultDesc" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_deduct_log">
+            <EntityTypeMapping TypeName="CodaPayDBModel.tbl_deduct_log">
+              <MappingFragment StoreEntitySet="tbl_deduct_log">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+                <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="gameName" ColumnName="gameName" />
+                <ScalarProperty Name="cardType" ColumnName="cardType" />
+                <ScalarProperty Name="deductDate" ColumnName="deductDate" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="resultCode" ColumnName="resultCode" />
+                <ScalarProperty Name="resultDesc" ColumnName="resultDesc" />
+                <ScalarProperty Name="ocsCode" ColumnName="ocsCode" />
+                <ScalarProperty Name="ocsDesc" ColumnName="ocsDesc" />
+                <ScalarProperty Name="newBalance" ColumnName="newBalance" />
+                <ScalarProperty Name="oldBalance" ColumnName="oldBalance" />
+                <ScalarProperty Name="smsStatus" ColumnName="smsStatus" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="operator" ColumnName="operator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_deduct_test">
+            <EntityTypeMapping TypeName="CodaPayDBModel.tbl_deduct_test">
+              <MappingFragment StoreEntitySet="tbl_deduct_test">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+                <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="gameName" ColumnName="gameName" />
+                <ScalarProperty Name="cardType" ColumnName="cardType" />
+                <ScalarProperty Name="deductDate" ColumnName="deductDate" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="resultCode" ColumnName="resultCode" />
+                <ScalarProperty Name="resultDesc" ColumnName="resultDesc" />
+                <ScalarProperty Name="ocsCode" ColumnName="ocsCode" />
+                <ScalarProperty Name="ocsDesc" ColumnName="ocsDesc" />
+                <ScalarProperty Name="newBalance" ColumnName="newBalance" />
+                <ScalarProperty Name="oldBalance" ColumnName="oldBalance" />
+                <ScalarProperty Name="smsStatus" ColumnName="smsStatus" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="operator" ColumnName="operator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_header">
+            <EntityTypeMapping TypeName="CodaPayDBModel.tbl_header">
+              <MappingFragment StoreEntitySet="tbl_header">
+                <ScalarProperty Name="USSDCode" ColumnName="USSDCode" />
+                <ScalarProperty Name="HeaderCode" ColumnName="HeaderCode" />
+                <ScalarProperty Name="IsTPlus" ColumnName="IsTPlus" />
+                <ScalarProperty Name="IsLTC" ColumnName="IsLTC" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HeaderName" ColumnName="HeaderName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="StopDate" ColumnName="StopDate" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+                <ScalarProperty Name="ReqIDUAT" ColumnName="ReqIDUAT" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Mmoney" ColumnName="Mmoney" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="userUAT" ColumnName="userUAT" />
+                <ScalarProperty Name="passUAT" ColumnName="passUAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_request_log">
+            <EntityTypeMapping TypeName="CodaPayDBModel.tbl_request_log">
+              <MappingFragment StoreEntitySet="tbl_request_log">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+                <ScalarProperty Name="gameName" ColumnName="gameName" />
+                <ScalarProperty Name="cardType" ColumnName="cardType" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="resultCode" ColumnName="resultCode" />
+                <ScalarProperty Name="resultDesc" ColumnName="resultDesc" />
+                <ScalarProperty Name="resultDate" ColumnName="resultDate" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_request_uat">
+            <EntityTypeMapping TypeName="CodaPayDBModel.tbl_request_uat">
+              <MappingFragment StoreEntitySet="tbl_request_uat">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="ResultCode" ColumnName="ResultCode" />
+                <ScalarProperty Name="ResultDesc" ColumnName="ResultDesc" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_sms_log">
+            <EntityTypeMapping TypeName="CodaPayDBModel.tbl_sms_log">
+              <MappingFragment StoreEntitySet="tbl_sms_log">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="send_date" ColumnName="send_date" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="resultCode" ColumnName="resultCode" />
+                <ScalarProperty Name="resultDesc" ColumnName="resultDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_confirm_deduct">
+            <EntityTypeMapping TypeName="CodaPayDBModel.tbl_confirm_deduct">
+              <MappingFragment StoreEntitySet="tbl_confirm_deduct">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="DeductType" ColumnName="DeductType" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="SMSStatus" ColumnName="SMSStatus" />
+                <ScalarProperty Name="NewBalance" ColumnName="NewBalance" />
+                <ScalarProperty Name="OldBalance" ColumnName="OldBalance" />
+                <ScalarProperty Name="ResultDesc" ColumnName="ResultDesc" />
+                <ScalarProperty Name="ResultCode" ColumnName="ResultCode" />
+                <ScalarProperty Name="DeductDate" ColumnName="DeductDate" />
+                <ScalarProperty Name="Cardname" ColumnName="Cardname" />
+                <ScalarProperty Name="Gamename" ColumnName="Gamename" />
+                <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+                <ScalarProperty Name="RefCode" ColumnName="RefCode" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_member">
+            <EntityTypeMapping TypeName="CodaPayDBModel.tbl_member">
+              <MappingFragment StoreEntitySet="tbl_member">
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="ResultDesc" ColumnName="ResultDesc" />
+                <ScalarProperty Name="ResultCode" ColumnName="ResultCode" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_request_log_production">
+            <EntityTypeMapping TypeName="CodaPayDBModel.tbl_request_log_production">
+              <MappingFragment StoreEntitySet="tbl_request_log_production">
+                <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="RefCode" ColumnName="RefCode" />
+                <ScalarProperty Name="OTPStatus" ColumnName="OTPStatus" />
+                <ScalarProperty Name="OTP" ColumnName="OTP" />
+                <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ResultDate" ColumnName="ResultDate" />
+                <ScalarProperty Name="ResultDesc" ColumnName="ResultDesc" />
+                <ScalarProperty Name="ResultCode" ColumnName="ResultCode" />
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_cancel_log">
+            <EntityTypeMapping TypeName="CodaPayDBModel.tbl_cancel_log">
+              <MappingFragment StoreEntitySet="tbl_cancel_log">
+                <ScalarProperty Name="USSDCode" ColumnName="USSDCode" />
+                <ScalarProperty Name="Channel" ColumnName="Channel" />
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+                <ScalarProperty Name="ResultDesc" ColumnName="ResultDesc" />
+                <ScalarProperty Name="ResultCode" ColumnName="ResultCode" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+                <ScalarProperty Name="Gamename" ColumnName="Gamename" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CodaService.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CodaService_bssSrv_BSSGSMSrv" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.30.6.92:7575/BSSGSMSrv.asmx</Value>
+    </Setting>
+    <Setting Name="CodaService_ocsSrv_ocsService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://172.28.12.212:5767/ocsService.asmx</Value>
+    </Setting>
+    <Setting Name="CodaService_OcsBeeline_Services" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://172.28.12.93:7781/Services.asmx</Value>
+    </Setting>
+    <Setting Name="CodaService_smsapi_smservice" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.30.6.95:3322/smservice.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

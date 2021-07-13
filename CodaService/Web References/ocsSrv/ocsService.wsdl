@@ -1,0 +1,1181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.services.laotel.com" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.services.laotel.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.services.laotel.com">
+      <s:element name="RefillCards">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pinnumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefillCardsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RefillCardsResult" type="tns:PaymentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PaymentResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultHeader" type="tns:ResultHeader" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Respon" type="tns:ResultRecharge" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResultHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="trans_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultMsg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResultRecharge">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BalanceType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BalanceTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OldBalance" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="NewBalance" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CashRechage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CashRechageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CashRechageResult" type="tns:PaymentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustmentBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="balanceType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustmentBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AdjustmentBalanceResult" type="tns:AdjustResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AdjustResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultHeader" type="tns:ResultHeader" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Respon" type="tns:ResultAdjust" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResultAdjust">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AdjustAmount" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="OldBalance" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="NewBalance" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TransferBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn2" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransferBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TransferBalanceResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransferBalances">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn2" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransferBalancesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TransferBalancesResult" type="tns:TransferResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TransferResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultHeader" type="tns:ResultHeader" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="balanceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryBalanceResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryAllBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryAllBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryAllBalanceResult" type="tns:ResultAllBalance" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultAllBalance">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultHeader" type="tns:ResultHeader" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultBalance" type="tns:ArrayOfResultBalance" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfResultBalance">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResultBalance" type="tns:ResultBalance" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResultBalance">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BalanceTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BalanceType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BalanceAmount" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryCustomerInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryCustomerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryCustomerInfoResult" type="tns:QueryCustomerInfoResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QueryCustomerInfoResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultHeader" type="tns:ResultHeader" />
+          <s:element minOccurs="1" maxOccurs="1" name="QueryStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="NetworkType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainProductID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActiveDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpriceDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdleDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BarringDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuspendDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BlacklistStatus" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QuerySubOffering">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySubOfferingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QuerySubOfferingResult" type="tns:SubOfferingInfoResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SubOfferingInfoResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultHeader" type="tns:ResultHeader" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubOfferingInfo" type="tns:ArrayOfSubOfferingInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSubOfferingInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SubOfferingInfo" type="tns:SubOfferingInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SubOfferingInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OfferingID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActiveDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpirDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NewSub">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="product" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSubResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewSubResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSubPostpaid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="product" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSubPostpaidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewSubPostpaidResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirstActive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirstActiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FirstActiveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSub">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSubResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteSubResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setValidty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="days" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setValidtyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="setValidtyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateValidty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="days" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateValidtyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateValidtyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryFree">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FreeType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryFreeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryFreeResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryAllFree">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryAllFreeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryAllFreeResult" type="tns:ResultAllFree" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultAllFree">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultHeader" type="tns:ResultHeader" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultFree" type="tns:ArrayOfResultFree" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfResultFree">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResultFree" type="tns:ResultFree" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResultFree">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FreeTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreeType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FreeAmount" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpireDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AdjustmentFree">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="freeType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdjustmentFreeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AdjustmentFreeResult" type="tns:AdjustResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeOffering">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeOfferingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeOfferingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSubOffering">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="offerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSubOfferingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddSubOfferingResult" type="tns:AddSubOfferingResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddSubOfferingResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultHeader" type="tns:ResultHeader" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddSubOfferingStatus" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddSubOfferings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="offerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="expireDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSubOfferingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddSubOfferingsResult" type="tns:AddSubOfferingResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelSubOffering">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="offerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelSubOfferingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelSubOfferingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnlockRefillBlackList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msisdn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnlockRefillBlackListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnlockRefillBlackListResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RefillCardsSoapIn">
+    <wsdl:part name="parameters" element="tns:RefillCards" />
+  </wsdl:message>
+  <wsdl:message name="RefillCardsSoapOut">
+    <wsdl:part name="parameters" element="tns:RefillCardsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CashRechageSoapIn">
+    <wsdl:part name="parameters" element="tns:CashRechage" />
+  </wsdl:message>
+  <wsdl:message name="CashRechageSoapOut">
+    <wsdl:part name="parameters" element="tns:CashRechageResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjustmentBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustmentBalance" />
+  </wsdl:message>
+  <wsdl:message name="AdjustmentBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustmentBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransferBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:TransferBalance" />
+  </wsdl:message>
+  <wsdl:message name="TransferBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:TransferBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransferBalancesSoapIn">
+    <wsdl:part name="parameters" element="tns:TransferBalances" />
+  </wsdl:message>
+  <wsdl:message name="TransferBalancesSoapOut">
+    <wsdl:part name="parameters" element="tns:TransferBalancesResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryBalance" />
+  </wsdl:message>
+  <wsdl:message name="QueryBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryAllBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryAllBalance" />
+  </wsdl:message>
+  <wsdl:message name="QueryAllBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryAllBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryCustomerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryCustomerInfo" />
+  </wsdl:message>
+  <wsdl:message name="QueryCustomerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryCustomerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySubOfferingSoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySubOffering" />
+  </wsdl:message>
+  <wsdl:message name="QuerySubOfferingSoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySubOfferingResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewSubSoapIn">
+    <wsdl:part name="parameters" element="tns:NewSub" />
+  </wsdl:message>
+  <wsdl:message name="NewSubSoapOut">
+    <wsdl:part name="parameters" element="tns:NewSubResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewSubPostpaidSoapIn">
+    <wsdl:part name="parameters" element="tns:NewSubPostpaid" />
+  </wsdl:message>
+  <wsdl:message name="NewSubPostpaidSoapOut">
+    <wsdl:part name="parameters" element="tns:NewSubPostpaidResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirstActiveSoapIn">
+    <wsdl:part name="parameters" element="tns:FirstActive" />
+  </wsdl:message>
+  <wsdl:message name="FirstActiveSoapOut">
+    <wsdl:part name="parameters" element="tns:FirstActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSubSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSub" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSubSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSubResponse" />
+  </wsdl:message>
+  <wsdl:message name="setValidtySoapIn">
+    <wsdl:part name="parameters" element="tns:setValidty" />
+  </wsdl:message>
+  <wsdl:message name="setValidtySoapOut">
+    <wsdl:part name="parameters" element="tns:setValidtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateValidtySoapIn">
+    <wsdl:part name="parameters" element="tns:updateValidty" />
+  </wsdl:message>
+  <wsdl:message name="updateValidtySoapOut">
+    <wsdl:part name="parameters" element="tns:updateValidtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryFreeSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryFree" />
+  </wsdl:message>
+  <wsdl:message name="QueryFreeSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryFreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryAllFreeSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryAllFree" />
+  </wsdl:message>
+  <wsdl:message name="QueryAllFreeSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryAllFreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdjustmentFreeSoapIn">
+    <wsdl:part name="parameters" element="tns:AdjustmentFree" />
+  </wsdl:message>
+  <wsdl:message name="AdjustmentFreeSoapOut">
+    <wsdl:part name="parameters" element="tns:AdjustmentFreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeOfferingSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeOffering" />
+  </wsdl:message>
+  <wsdl:message name="ChangeOfferingSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeOfferingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSubOfferingSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSubOffering" />
+  </wsdl:message>
+  <wsdl:message name="AddSubOfferingSoapOut">
+    <wsdl:part name="parameters" element="tns:AddSubOfferingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSubOfferingsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSubOfferings" />
+  </wsdl:message>
+  <wsdl:message name="AddSubOfferingsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddSubOfferingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelSubOfferingSoapIn">
+    <wsdl:part name="parameters" element="tns:DelSubOffering" />
+  </wsdl:message>
+  <wsdl:message name="DelSubOfferingSoapOut">
+    <wsdl:part name="parameters" element="tns:DelSubOfferingResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnlockRefillBlackListSoapIn">
+    <wsdl:part name="parameters" element="tns:UnlockRefillBlackList" />
+  </wsdl:message>
+  <wsdl:message name="UnlockRefillBlackListSoapOut">
+    <wsdl:part name="parameters" element="tns:UnlockRefillBlackListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ocsServiceSoap">
+    <wsdl:operation name="RefillCards">
+      <wsdl:input message="tns:RefillCardsSoapIn" />
+      <wsdl:output message="tns:RefillCardsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CashRechage">
+      <wsdl:input message="tns:CashRechageSoapIn" />
+      <wsdl:output message="tns:CashRechageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustmentBalance">
+      <wsdl:input message="tns:AdjustmentBalanceSoapIn" />
+      <wsdl:output message="tns:AdjustmentBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferBalance">
+      <wsdl:input message="tns:TransferBalanceSoapIn" />
+      <wsdl:output message="tns:TransferBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferBalances">
+      <wsdl:input message="tns:TransferBalancesSoapIn" />
+      <wsdl:output message="tns:TransferBalancesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryBalance">
+      <wsdl:input message="tns:QueryBalanceSoapIn" />
+      <wsdl:output message="tns:QueryBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllBalance">
+      <wsdl:input message="tns:QueryAllBalanceSoapIn" />
+      <wsdl:output message="tns:QueryAllBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryCustomerInfo">
+      <wsdl:input message="tns:QueryCustomerInfoSoapIn" />
+      <wsdl:output message="tns:QueryCustomerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySubOffering">
+      <wsdl:input message="tns:QuerySubOfferingSoapIn" />
+      <wsdl:output message="tns:QuerySubOfferingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewSub">
+      <wsdl:input message="tns:NewSubSoapIn" />
+      <wsdl:output message="tns:NewSubSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewSubPostpaid">
+      <wsdl:input message="tns:NewSubPostpaidSoapIn" />
+      <wsdl:output message="tns:NewSubPostpaidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirstActive">
+      <wsdl:input message="tns:FirstActiveSoapIn" />
+      <wsdl:output message="tns:FirstActiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSub">
+      <wsdl:input message="tns:DeleteSubSoapIn" />
+      <wsdl:output message="tns:DeleteSubSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setValidty">
+      <wsdl:input message="tns:setValidtySoapIn" />
+      <wsdl:output message="tns:setValidtySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateValidty">
+      <wsdl:input message="tns:updateValidtySoapIn" />
+      <wsdl:output message="tns:updateValidtySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryFree">
+      <wsdl:input message="tns:QueryFreeSoapIn" />
+      <wsdl:output message="tns:QueryFreeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllFree">
+      <wsdl:input message="tns:QueryAllFreeSoapIn" />
+      <wsdl:output message="tns:QueryAllFreeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustmentFree">
+      <wsdl:input message="tns:AdjustmentFreeSoapIn" />
+      <wsdl:output message="tns:AdjustmentFreeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOffering">
+      <wsdl:input message="tns:ChangeOfferingSoapIn" />
+      <wsdl:output message="tns:ChangeOfferingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSubOffering">
+      <wsdl:input message="tns:AddSubOfferingSoapIn" />
+      <wsdl:output message="tns:AddSubOfferingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSubOfferings">
+      <wsdl:input message="tns:AddSubOfferingsSoapIn" />
+      <wsdl:output message="tns:AddSubOfferingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelSubOffering">
+      <wsdl:input message="tns:DelSubOfferingSoapIn" />
+      <wsdl:output message="tns:DelSubOfferingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlockRefillBlackList">
+      <wsdl:input message="tns:UnlockRefillBlackListSoapIn" />
+      <wsdl:output message="tns:UnlockRefillBlackListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ocsServiceSoap" type="tns:ocsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RefillCards">
+      <soap:operation soapAction="http://www.services.laotel.com/RefillCards" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CashRechage">
+      <soap:operation soapAction="http://www.services.laotel.com/CashRechage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustmentBalance">
+      <soap:operation soapAction="http://www.services.laotel.com/AdjustmentBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferBalance">
+      <soap:operation soapAction="http://www.services.laotel.com/TransferBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferBalances">
+      <soap:operation soapAction="http://www.services.laotel.com/TransferBalances" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBalance">
+      <soap:operation soapAction="http://www.services.laotel.com/QueryBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllBalance">
+      <soap:operation soapAction="http://www.services.laotel.com/QueryAllBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCustomerInfo">
+      <soap:operation soapAction="http://www.services.laotel.com/QueryCustomerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySubOffering">
+      <soap:operation soapAction="http://www.services.laotel.com/QuerySubOffering" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSub">
+      <soap:operation soapAction="http://www.services.laotel.com/NewSub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSubPostpaid">
+      <soap:operation soapAction="http://www.services.laotel.com/NewSubPostpaid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirstActive">
+      <soap:operation soapAction="http://www.services.laotel.com/FirstActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSub">
+      <soap:operation soapAction="http://www.services.laotel.com/DeleteSub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setValidty">
+      <soap:operation soapAction="http://www.services.laotel.com/setValidty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateValidty">
+      <soap:operation soapAction="http://www.services.laotel.com/updateValidty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryFree">
+      <soap:operation soapAction="http://www.services.laotel.com/QueryFree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllFree">
+      <soap:operation soapAction="http://www.services.laotel.com/QueryAllFree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustmentFree">
+      <soap:operation soapAction="http://www.services.laotel.com/AdjustmentFree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOffering">
+      <soap:operation soapAction="http://www.services.laotel.com/ChangeOffering" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSubOffering">
+      <soap:operation soapAction="http://www.services.laotel.com/AddSubOffering" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSubOfferings">
+      <soap:operation soapAction="http://www.services.laotel.com/AddSubOfferings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelSubOffering">
+      <soap:operation soapAction="http://www.services.laotel.com/DelSubOffering" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockRefillBlackList">
+      <soap:operation soapAction="http://www.services.laotel.com/UnlockRefillBlackList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ocsServiceSoap12" type="tns:ocsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RefillCards">
+      <soap12:operation soapAction="http://www.services.laotel.com/RefillCards" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CashRechage">
+      <soap12:operation soapAction="http://www.services.laotel.com/CashRechage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustmentBalance">
+      <soap12:operation soapAction="http://www.services.laotel.com/AdjustmentBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferBalance">
+      <soap12:operation soapAction="http://www.services.laotel.com/TransferBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferBalances">
+      <soap12:operation soapAction="http://www.services.laotel.com/TransferBalances" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBalance">
+      <soap12:operation soapAction="http://www.services.laotel.com/QueryBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllBalance">
+      <soap12:operation soapAction="http://www.services.laotel.com/QueryAllBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryCustomerInfo">
+      <soap12:operation soapAction="http://www.services.laotel.com/QueryCustomerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySubOffering">
+      <soap12:operation soapAction="http://www.services.laotel.com/QuerySubOffering" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSub">
+      <soap12:operation soapAction="http://www.services.laotel.com/NewSub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSubPostpaid">
+      <soap12:operation soapAction="http://www.services.laotel.com/NewSubPostpaid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirstActive">
+      <soap12:operation soapAction="http://www.services.laotel.com/FirstActive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSub">
+      <soap12:operation soapAction="http://www.services.laotel.com/DeleteSub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setValidty">
+      <soap12:operation soapAction="http://www.services.laotel.com/setValidty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateValidty">
+      <soap12:operation soapAction="http://www.services.laotel.com/updateValidty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryFree">
+      <soap12:operation soapAction="http://www.services.laotel.com/QueryFree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllFree">
+      <soap12:operation soapAction="http://www.services.laotel.com/QueryAllFree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustmentFree">
+      <soap12:operation soapAction="http://www.services.laotel.com/AdjustmentFree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOffering">
+      <soap12:operation soapAction="http://www.services.laotel.com/ChangeOffering" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSubOffering">
+      <soap12:operation soapAction="http://www.services.laotel.com/AddSubOffering" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSubOfferings">
+      <soap12:operation soapAction="http://www.services.laotel.com/AddSubOfferings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelSubOffering">
+      <soap12:operation soapAction="http://www.services.laotel.com/DelSubOffering" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockRefillBlackList">
+      <soap12:operation soapAction="http://www.services.laotel.com/UnlockRefillBlackList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ocsService">
+    <wsdl:port name="ocsServiceSoap" binding="tns:ocsServiceSoap">
+      <soap:address location="http://172.28.12.212:5767/ocsService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ocsServiceSoap12" binding="tns:ocsServiceSoap12">
+      <soap12:address location="http://172.28.12.212:5767/ocsService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

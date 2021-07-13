@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b8f1a6101c9e4db2b2e0f20e9a482659" Name="Diagram1">
+        <EntityTypeShape EntityType="CodaPayDBModel.tbl_backlist" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodaPayDBModel.tbl_deduct_log" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodaPayDBModel.tbl_deduct_test" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodaPayDBModel.tbl_header" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodaPayDBModel.tbl_request_log" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodaPayDBModel.tbl_request_uat" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodaPayDBModel.tbl_sms_log" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodaPayDBModel.tbl_confirm_deduct" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CodaPayDBModel.tbl_member" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="CodaPayDBModel.tbl_request_log_production" Width="2" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CodaPayDBModel.tbl_cancel_log" Width="1.5" PointX="0.75" PointY="10.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

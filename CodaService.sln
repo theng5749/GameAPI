@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodaService", "CodaService\CodaService.csproj", "{8DE034AE-21DA-4F28-8140-88DD8CEDAB4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIForwardSMS", "APIForwardSMS\APIForwardSMS.csproj", "{A21DF7F4-B781-4ECF-B646-B062CFCCD317}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRedirectHE", "WebRedirectHE\WebRedirectHE.csproj", "{FDE4C86F-54A0-4E05-8F45-EA9A4F227FD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendSMS", "SendSMS\SendSMS.csproj", "{DDC88846-D622-4B3A-B78F-5EF2C65ED024}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DE034AE-21DA-4F28-8140-88DD8CEDAB4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DE034AE-21DA-4F28-8140-88DD8CEDAB4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DE034AE-21DA-4F28-8140-88DD8CEDAB4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DE034AE-21DA-4F28-8140-88DD8CEDAB4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A21DF7F4-B781-4ECF-B646-B062CFCCD317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A21DF7F4-B781-4ECF-B646-B062CFCCD317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A21DF7F4-B781-4ECF-B646-B062CFCCD317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A21DF7F4-B781-4ECF-B646-B062CFCCD317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDE4C86F-54A0-4E05-8F45-EA9A4F227FD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDE4C86F-54A0-4E05-8F45-EA9A4F227FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDE4C86F-54A0-4E05-8F45-EA9A4F227FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDE4C86F-54A0-4E05-8F45-EA9A4F227FD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDC88846-D622-4B3A-B78F-5EF2C65ED024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDC88846-D622-4B3A-B78F-5EF2C65ED024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDC88846-D622-4B3A-B78F-5EF2C65ED024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDC88846-D622-4B3A-B78F-5EF2C65ED024}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70B1DAEC-3CCA-4FAC-A6BA-E98031C4567C}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://172.28.12.42:8080/tfs/mobile%20application
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = APIForwardSMS\\APIForwardSMS.csproj
+		SccProjectName1 = APIForwardSMS
+		SccLocalPath1 = APIForwardSMS
+		SccProjectUniqueName2 = CodaService\\CodaService.csproj
+		SccProjectName2 = CodaService
+		SccLocalPath2 = CodaService
+		SccProjectUniqueName3 = SendSMS\\SendSMS.csproj
+		SccProjectName3 = SendSMS
+		SccLocalPath3 = SendSMS
+		SccProjectUniqueName4 = WebRedirectHE\\WebRedirectHE.csproj
+		SccProjectName4 = WebRedirectHE
+		SccLocalPath4 = WebRedirectHE
+	EndGlobalSection
+EndGlobal
